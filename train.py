@@ -28,7 +28,7 @@ def train_and_save(data_path=DATA_PATH, out_dir=OUT_DIR):
     print(f"Testing set size: {len(X_test)}")
 
     # NOTE: if your dataset is small, reduce min_df (e.g. min_df=1 or 2)
-    tfidf = TfidfVectorizer(min_df=5, stop_words='english')
+    tfidf = TfidfVectorizer(min_df=1, stop_words='english',  ngram_range=(1,2))
     X_train_tfidf = tfidf.fit_transform(X_train)
     X_test_tfidf = tfidf.transform(X_test)
 
